@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevConf 2026 - Contact Us</title>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="speakers.html">Speakers</a> |
+    <a href="schedule.html">Schedule</a> |
+    <a href="sponsors.html">Sponsors</a> |
+    <a href="register.html">Register</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="faq.html">FAQ</a>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Get in Touch</h2>
+      
+      <!-- Contact Information -->
+      <address>
+        <p><strong>DevConf Headquarters</strong><br>
+        123 Tech Park, Hitech City<br>
+        Hyderabad, Telengana 500081<br>
+        India</p>
+        
+        <p>Email: <a href="mailto:info@devconf.in">info@devconf.in</a></p>
+        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      </address>
+      
+      <p><strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM IST</p>
+    </section>
+
+    <!-- Map -->
+    <section>
+      <h2>Location</h2>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.27361734567!2d78.374567!3d17.448293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzUzLjkiTiA3OMKwMjInMjguNCJF!5e0!3m2!1sen!2sin!4v1631234567890!5m2!1sen!2sin" 
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+      <h2>Send us a Message</h2>
+      <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required minlength="2"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="subject">Subject:</label>
+        <select id="subject" name="subject">
+          <option value="general">General Inquiry</option>
+          <option value="sponsorship">Sponsorship</option>
+          <option value="tickets">Tickets & Registration</option>
+          <option value="press">Press & Media</option>
+          <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="8" cols="50" required maxlength="2000"></textarea><br><br>
+
+        <fieldset>
+          <legend>Preferred Contact Method</legend>
+          <input type="radio" id="contact-email" name="contact-method" value="email" checked>
+          <label for="contact-email">Email</label>
+          <input type="radio" id="contact-phone" name="contact-method" value="phone">
+          <label for="contact-phone">Phone</label>
+          <input type="radio" id="contact-either" name="contact-method" value="either">
+          <label for="contact-either">Either</label>
+        </fieldset><br>
+
+        <label for="calltime">Best Time to Call:</label>
+        <input type="time" id="calltime" name="calltime"><br><br>
+
+        <input type="submit" value="Send Message">
+      </form>
+    </section>
+
+    <!-- Social Media -->
+    <section>
+      <h2>Follow Us</h2>
+        <a href="#">Twitter</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">Facebook</a>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>&copy; 2026 DevConf India. All rights reserved.</p>
+  </footer>
+</body>
+</html>

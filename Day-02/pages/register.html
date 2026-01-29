@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevConf 2026 - Register</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Register for DevConf 2026</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="speakers.html">Speakers</a> |
+        <a href="schedule.html">Schedule</a> |
+        <a href="sponsors.html">Sponsors</a> |
+        <a href="register.html">Register</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Join the Future of Tech</h2>
+            <p>Complete the form below to secure your spot.</p>
+
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" required placeholder="John"><br><br>
+
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required placeholder="Doe"><br><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"><br><br>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="123-456-7890"><br><br>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob"><br><br>
+                </fieldset>
+
+                <!-- Professional Details -->
+                <fieldset>
+                    <legend>Professional Details</legend>
+
+                    <label for="jobtitle">Job Title:</label>
+                    <input type="text" id="jobtitle" name="jobtitle"><br><br>
+
+                    <label for="company">Company/Organization:</label>
+                    <input type="text" id="company" name="company"><br><br>
+
+                    <label for="experience">Years of Experience:</label>
+                    <input type="number" id="experience" name="experience" min="0" max="50"><br><br>
+
+                    <label for="industry">Industry:</label>
+                    <select id="industry" name="industry">
+                        <option value="">--Select Industry--</option>
+                        <optgroup label="Technology">
+                            <option value="software">Software Development</option>
+                            <option value="data">Data Science</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                        </optgroup>
+                        <optgroup label="Other Sectors">
+                            <option value="finance">Finance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="education">Education</option>
+                        </optgroup>
+                    </select><br><br>
+                </fieldset>
+
+                <!-- Conference Preferences -->
+                <fieldset>
+                    <legend>Conference Preferences</legend>
+
+                    <label>Attendance Type:</label><br>
+                    <input type="radio" id="in-person" name="attendance" value="in-person" checked>
+                    <label for="in-person">In-Person</label><br>
+                    <input type="radio" id="virtual" name="attendance" value="virtual">
+                    <label for="virtual">Virtual</label><br>
+                    <input type="radio" id="hybrid" name="attendance" value="hybrid">
+                    <label for="hybrid">Hybrid</label><br><br>
+
+                    <label>Workshop Selection (Choose up to 5):</label><br>
+                    <input type="checkbox" id="workshop1" name="workshops" value="react">
+                    <label for="workshop1">React Advanced Patterns</label><br>
+                    <input type="checkbox" id="workshop2" name="workshops" value="cloud">
+                    <label for="workshop2">Cloud Native Deployment</label><br>
+                    <input type="checkbox" id="workshop3" name="workshops" value="ai">
+                    <label for="workshop3">Intro to LLMs</label><br>
+                    <input type="checkbox" id="workshop4" name="workshops" value="security">
+                    <label for="workshop4">Web Security Essentials</label><br>
+                    <input type="checkbox" id="workshop5" name="workshops" value="ux">
+                    <label for="workshop5">UX Design for Devs</label><br><br>
+
+                    <label for="tshirt">T-Shirt Size:</label>
+                    <select id="tshirt" name="tshirt">
+                        <option value="xs">XS</option>
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                        <option value="xl">XL</option>
+                        <option value="xxl">XXL</option>
+                    </select><br><br>
+
+                    <label for="dietary">Dietary Requirements:</label><br>
+                    <textarea id="dietary" name="dietary" rows="4" cols="50" maxlength="500" placeholder="Please specify any allergies or dietary restrictions..."></textarea><br><br>
+                </fieldset>
+
+                <!-- Additional Information -->
+                <fieldset>
+                    <legend>Additional Information</legend>
+
+                    <label for="accommodations">Special Accommodations:</label><br>
+                    <textarea id="accommodations" name="accommodations" rows="4" cols="50"></textarea><br><br>
+
+                    <label for="referral">How did you hear about us?</label>
+                    <select id="referral" name="referral">
+                        <option value="social">Social Media</option>
+                        <option value="email">Email Newsletter</option>
+                        <option value="friend">Friend/Colleague</option>
+                        <option value="search">Search Engine</option>
+                    </select><br><br>
+
+                    <label for="resume">Upload Resume/CV (PDF only):</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf"><br><br>
+                </fieldset>
+
+                <!-- Terms -->
+                <fieldset>
+                    <legend>Terms & Conditions</legend>
+
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the Terms and Conditions and Privacy Policy.</label><br>
+
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Subscribe to our monthly newsletter.</label><br><br>
+                </fieldset>
+
+                <!-- Buttons -->
+                <input type="submit" value="Register Now">
+                <input type="reset" value="Reset Form">
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <hr>
+        <p>&copy; 2026 DevConf India. All rights reserved.</p>
+    </footer>
+</body>
+</html>
