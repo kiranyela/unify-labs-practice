@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DevConf 2026 - Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevConf 2026 - The Future of Tech</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <nav class="sticky-nav">
-    <div class="nav-container">
-      <div class="logo">Dev<span>Conf</span></div>
-      <ul class="flex-menu">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="speakers.html">Speakers</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="sponsors.html">Sponsors</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <header class="gradient-hero">
-    <div class="hero-content">
-      <h1>The Future of Web Development</h1>
-      <p>Join India's most influential developer ecosystem.</p>
-      <div class="hero-btns">
-        <a href="register.html" class="btn primary">Secure My Pass</a>
-        <a href="about.html" class="btn secondary">View Mission</a>
-      </div>
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="container">
+            <div class="logo">Dev<span>Conf</span> 2026</div>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/speakers.html">Speakers</a></li>
+                <li><a href="pages/schedule.html">Schedule</a></li>
+                <li><a href="pages/sponsors.html">Sponsors</a></li>
+                <li><a href="pages/register.html">Register</a></li>
+                <!-- <li><a href="pages/contact.html">Contact</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Secondary Nav / Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li>Home</li>
+            </ol>
+        </div>
     </div>
-  </header>
 
-  <section class="highlights-section">
-    <h2 class="section-title">Why Attend?</h2>
-    <div class="grid-layout">
-      <div class="info-card">
-        <div class="icon">🚀</div>
-        <h3>Technical Depth</h3>
-        <p>Deep dive into modern architectures with senior industry engineers.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🤝</div>
-        <h3>Networking</h3>
-        <p>Connect with 5,000+ like-minded developers and recruiters.</p>
-      </div>
-      <div class="info-card">
-        <div class="icon">🏆</div>
-        <h3>Career Growth</h3>
-        <p>Establish yourself in the tech community and find your next role.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <header class="page-header">
+        <div class="container">
+            <h1>DevConf 2026</h1>
+            <p><strong>March 15-16, 2026</strong> &bull; Convention Center, Tech City</p>
+        </div>
+    </header>
 
-  <footer class="footer">
-    <p>&copy; 2026 DevConf India | Handcrafted with CSS Layouts</p>
-  </footer>
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Hero Grid Section -->
+        <section id="hero" class="hero-grid">
+            <div class="hero-text">
+                <h2>Welcome to the Future</h2>
+                <p>Join the world's leading developers, engineers, and visionaries for two days of innovation. Experience over 50+ technical sessions, hands-on workshops, and unparalleled networking opportunities.</p>
+                <br>
+                <a href="pages/about.html" class="btn">Learn More</a>
+            </div>
+            
+            <div class="hero-media">
+                <!-- Promotional Video -->
+                <video autoplay muted loop poster="assets/images/hero-bg.jpg">
+                    <!-- Placeholder fallback since we don't have a real video yet, reusing one that might work or just showing poster -->
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Statistics Section -->
+        <section id="stats">
+            <h2>Conference Impact</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attendees</th>
+                        <th>Speakers</th>
+                        <th>Sessions</th>
+                        <th>Countries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2,000+</td>
+                        <td>40+</td>
+                        <td>50+</td>
+                        <td>30+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="cta" style="text-align: center; background: #E0F2FE; padding: 3rem; border-radius: 12px;">
+            <h2>Secure Your Spot</h2>
+            <p>Tickets are selling fast. Don't miss the Early Bird discount!</p>
+            <br>
+            <a href="pages/register.html" class="btn">Register Now</a>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DevConf. All rights reserved.</p>
+            <p style="margin-top: 1rem;">
+                <a href="#">Twitter</a> &bull; <a href="#">LinkedIn</a> &bull; <a href="#">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>

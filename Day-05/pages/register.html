@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DevConf 2026</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Dev<span>Conf</span> 2026</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="speakers.html">Speakers</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="register.html" class="active">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <hr style="margin: 0;">
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Register for DevConf 2026</h1>
+            <p>Secure your spot at the event of the year.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <form action="#" method="POST" enctype="multipart/form-data">
+            
+            <!-- Personal Information -->
+            <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                <legend style="font-size: 1.5rem; font-weight: 700; color: var(--primary-main); margin-bottom: 1.5rem;">Personal Information</legend>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" required placeholder="John">
+                    </div>
+                    <div>
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname" required placeholder="Doe">
+                    </div>
+                </div>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1-555-0199">
+                    </div>
+                    <div>
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Professional Details -->
+            <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                <legend style="font-size: 1.5rem; font-weight: 700; color: var(--primary-main); margin-bottom: 1.5rem;">Professional Details</legend>
+                <label for="jobtitle">Job Title</label>
+                <input type="text" id="jobtitle" name="jobtitle">
+            </fieldset>
+
+            <button type="submit" class="btn">Complete Registration</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>DevConf 2026</h4>
+                    <p>The premier global conference for developers, by developers.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DevConf. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

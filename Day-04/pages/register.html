@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DevConf 2026</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Dev<span>Conf</span> 2026</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="speakers.html">Speakers</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="register.html" class="active">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <hr style="margin: 0;">
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Register for DevConf 2026</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <form action="#" method="POST" enctype="multipart/form-data">
+            
+            <!-- Personal Information -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" required placeholder="John">
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" required placeholder="Doe">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com">
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1-555-0199">
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+            </fieldset>
+
+            <!-- Professional Details -->
+            <fieldset>
+                <legend>Professional Details</legend>
+                <!-- Inputs kept simple for brevity but structure matches -->
+                <label for="jobtitle">Job Title:</label>
+                <input type="text" id="jobtitle" name="jobtitle">
+            </fieldset>
+
+            <button type="submit" class="btn">Complete Registration</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 DevConf. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

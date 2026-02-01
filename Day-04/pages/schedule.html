@@ -4,35 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule - DevConf 2026</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Conference Schedule</h1>
-        <p>Join us for two days of learning and networking.</p>
+    <nav>
+        <div class="container">
+            <div class="logo">Dev<span>Conf</span> 2026</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="speakers.html">Speakers</a></li>
+                <li><a href="schedule.html" class="active">Schedule</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <hr style="margin: 0;">
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Conference Schedule</h1>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="speakers.html">Speakers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="sponsors.html">Sponsors</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-    </nav>
-    <hr>
-
-    <main>
+    <main class="container">
         <!-- Day 1 Schedule -->
         <section>
-            <header>
-                <h2>Day 1: March 15, 2026</h2>
-            </header>
-            <table border="1" cellpadding="10">
+            <h2>Day 1: March 15, 2026</h2>
+            <table>
                 <thead>
                     <tr>
                         <th>Time</th>
@@ -66,10 +67,8 @@
 
         <!-- Day 2 Schedule -->
         <section>
-            <header>
-                <h2>Day 2: March 16, 2026</h2>
-            </header>
-            <table border="1" cellpadding="10">
+            <h2>Day 2: March 16, 2026</h2>
+            <table>
                 <thead>
                     <tr>
                         <th>Time</th>
@@ -95,10 +94,11 @@
             </table>
         </section>
     </main>
-    <hr>
 
     <footer>
-        <p>&copy; 2026 DevConf. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2026 DevConf. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>

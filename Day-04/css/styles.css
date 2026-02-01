@@ -1,0 +1,312 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* 
+   CSS Variables (Custom Properties) 
+   Defining the design system properly here.
+*/
+:root {
+    /* Colors */
+    --primary-color: #0F172A;   /* Deep Slate */
+    --primary-light: #1E293B;
+    --secondary-color: #0EA5E9; /* Sky Blue */
+    --accent-color: #F43F5E;    /* Rose/Pink */
+    --text-main: #334155;
+    --text-muted: #64748B;
+    --text-light: #F8FAFC;
+    --bg-body: #F1F5F9;
+    --bg-card: #FFFFFF;
+    --border-color: #E2E8F0;
+
+    /* Spacing & Layout */
+    --container-max-width: 1200px;
+    --header-height: 70px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* Shadows (Elevation) */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; margin-bottom: 2rem; position: relative; }
+/* Add a small accent line under H2s */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+p { margin-bottom: 1rem; color: var(--text-main); }
+a { text-decoration: none; transition: color 0.2s; }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Utility Class: Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 
+   NAVIGATION (Flexbox) 
+   Requirement: sticky, flex, justify-between
+*/
+nav {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+.logo span { color: var(--secondary-color); }
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+nav a:hover, nav a.active {
+    color: var(--secondary-color);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.breadcrumbs ol {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+}
+.breadcrumbs li::after {
+    content: '/';
+    margin-left: 0.5rem;
+    color: var(--border-color);
+}
+.breadcrumbs li:last-child::after { content: ''; }
+
+/* 
+   PAGE HEADER (Hero)
+   Requirement: background-size: cover, linear-gradient
+*/
+header.page-header {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8)), 
+                url('../assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    padding: 5rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header.page-header h1 { color: var(--text-light); margin-bottom: 1rem; }
+header.page-header p { font-size: 1.25rem; opacity: 0.9; }
+
+/* 
+   MAIN LAYOUT & GRIDS
+*/
+main {
+    padding-bottom: 5rem;
+}
+
+section { margin-bottom: 5rem; }
+
+/* Hero Grid (Index specific) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns by default */
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+    nav ul { display: none; } /* Hide menu for simple mobile view (improved in Day 5 JS) */
+}
+
+/* 
+   SPEAKER GRID 
+   Requirement: repeat(auto-fit, minmax(300px, 1fr))
+*/
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Card Styling with Visual Depth */
+article.speaker-profile {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    
+    /* Shadow Effects */
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article.speaker-profile:hover {
+    transform: translateY(-8px); /* Lift up */
+    box-shadow: var(--shadow-lg); /* Deep shadow */
+    border-color: var(--secondary-color);
+}
+
+.speaker-profile img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-body);
+    box-shadow: var(--shadow-md);
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.85rem 1.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Forms & Inputs */
+form {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+th {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.25rem;
+    text-align: left;
+    font-weight: 600;
+}
+td {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #F8FAFC; }
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 4rem 0;
+    margin-top: auto;
+    text-align: center;
+}
+footer a { color: var(--secondary-color); opacity: 0.8; }
+footer a:hover { opacity: 1; }
