@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Component Library</title>
+    <style>
+        /* * ==========================================
+         * 1. CSS VARIABLES & THEME CONFIGURATION
+         * ==========================================
+         */
+        :root {
+            /* Light Theme (Default) */
+            --bg-body: #f4f4f9;
+            --bg-nav: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --primary-color: #6366f1; /* Indigo */
+            --neon-color: #0ff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            
+            /* Transitions */
+            --transition-speed: 0.3s;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Overrides */
+            --bg-body: #0f172a;
+            --bg-nav: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-color: #818cf8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* * ==========================================
+         * 2. RESPONSIVE NAVBAR (CHECKBOX HACK)
+         * ==========================================
+         */
+        .navbar {
+            background-color: var(--bg-nav);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* The Checkbox Hack Inputs */
+        .nav-toggle-input {
+            display: none; /* Hide the actual checkbox */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hamburger Icon (Label) */
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* Theme Toggle Button Styles */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Mobile Responsive Logic */
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: flex;
+            }
+
+            .nav-links {
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                margin-top: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                border-top: 1px solid var(--border-color);
+            }
+
+            /* The Magic: Checkbox Hack Logic */
+            /* When checkbox is checked, select sibling .nav-links */
+            .nav-toggle-input:checked ~ .nav-links {
+                max-height: 300px; /* Arbitrary large height to allow expansion */
+                margin-top: 1rem;
+            }
+
+            /* Hamburger Animation */
+            .nav-toggle-input:checked ~ .nav-toggle-label .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            .nav-toggle-input:checked ~ .nav-toggle-label .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle-input:checked ~ .nav-toggle-label .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+        }
+
+        /* * ==========================================
+         * 3. BUTTON SHOWCASE
+         * ==========================================
+         */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            padding: 4rem 1rem;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Shared Button Styles */
+        .btn {
+            position: relative;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* --- A. Neon Glow Button --- */
+        .btn-neon {
+            color: var(--neon-color);
+            border: 2px solid var(--neon-color);
+            border-radius: 4px;
+            background-color: transparent;
+            box-shadow: 0 0 5px var(--neon-color), 0 0 15px inset var(--neon-color);
+            text-shadow: 0 0 5px var(--neon-color);
+        }
+
+        .btn-neon:hover {
+            background-color: var(--neon-color);
+            color: #000;
+            box-shadow: 0 0 10px var(--neon-color), 0 0 40px var(--neon-color), 0 0 80px var(--neon-color);
+            text-shadow: none;
+        }
+
+        /* --- B. Animated Rotating Border Button --- */
+        .btn-rotate {
+            color: var(--text-main);
+            background: var(--bg-nav);
+            border-radius: 8px;
+            z-index: 1;
+            overflow: hidden; /* Contains the pseudo-elements */
+        }
+
+        /* The spinning gradient background */
+        .btn-rotate::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%; 
+            height: 300%;
+            background: conic-gradient(transparent, transparent, transparent, var(--primary-color));
+            animation: rotate-border 4s linear infinite;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+
+        /* The inner mask to create the "border" look */
+        .btn-rotate::after {
+            content: '';
+            position: absolute;
+            inset: 3px; /* Border thickness */
+            background: var(--bg-nav);
+            border-radius: 6px;
+            z-index: -1;
+        }
+
+        .btn-rotate:hover::before {
+            animation-duration: 1.5s; /* Speed up on hover */
+            background: conic-gradient(transparent, var(--primary-color), var(--primary-color));
+        }
+
+        @keyframes rotate-border {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* --- C. Hover Micro-animation Button --- */
+        .btn-micro {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-micro span {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-micro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #4f46e5; /* Darker shade */
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .btn-micro:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-micro:hover span {
+            transform: translateX(5px); /* Subtle nudge */
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Unified.UI</a>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="#">Components</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li>
+                    <button id="theme-switch" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <span>🌓</span> Mode
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <div class="btn-container">
+            <span class="label">01. Neon Glow</span>
+            <button class="btn btn-neon">Cyberpunk</button>
+        </div>
+
+        <div class="btn-container">
+            <span class="label">02. Rotating Border</span>
+            <button class="btn btn-rotate">Processing</button>
+        </div>
+
+        <div class="btn-container">
+            <span class="label">03. Micro Hover</span>
+            <button class="btn btn-micro"><span>Get Started &rarr;</span></button>
+        </div>
+
+    </main>
+
+    <script>
+        /**
+         * Theme Switcher Logic
+         * Uses LocalStorage to persist state between reloads.
+         */
+        const themeSwitch = document.getElementById('theme-switch');
+        const htmlElement = document.documentElement;
+
+        // 1. Check local storage or system preference on load
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            htmlElement.setAttribute('data-theme', 'dark');
+        }
+
+        // 2. Toggle Logic
+        themeSwitch.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }); 
+    </script>
+</body>
+</html>
