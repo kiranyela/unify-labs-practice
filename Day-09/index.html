@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Dashboard</title>
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --spacing-md: 1.5rem;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            /* Gradient background to highlight Glassmorphism */
+            background-image: radial-gradient(circle at 0% 0%, #312e81 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, #be185d 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* --- Grid Layout --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 3rem;
+        }
+
+        /* --- Shared Card Styles --- */
+        .card-base {
+            border-radius: var(--radius-lg);
+            min-height: 350px;
+            position: relative;
+        }
+
+        h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+        p { color: var(--text-secondary); line-height: 1.6; }
+
+        /* =========================================
+           1. 3D Flip Card Implementation
+           ========================================= */
+        .flip-card-container {
+            perspective: 1000px; /* Essential for 3D effect */
+            background: transparent;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d; /* Children exist in 3D space */
+        }
+
+        .flip-card-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden; /* Hides the back when facing away */
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card-front {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+        }
+
+        .flip-card-back {
+            background-color: var(--accent);
+            color: #000;
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-back p { color: #1e293b; font-weight: 500; }
+
+        /* =========================================
+           2. Glassmorphism Card Implementation
+           ========================================= */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Animated Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--accent);
+            width: 0%;
+            animation: loadProgress 2s ease-out forwards;
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 75%; }
+        }
+
+        /* =========================================
+           3. Animated Gradient Border Card
+           ========================================= */
+        .neon-border-card {
+            position: relative;
+            background: var(--card-bg);
+            /* Space for the border to show */
+            padding: 3px; 
+            overflow: hidden;
+            display: flex; /* Fixes wrapper height issues */
+        }
+
+        /* The spinning gradient layer */
+        .neon-border-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                var(--accent), 
+                transparent 30%
+            );
+            animation: rotate-border 4s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            100% { transform: rotate(1turn); }
+        }
+
+        /* The content layer sitting on top of the spinner */
+        .card-content {
+            background: var(--card-bg);
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--radius-lg) - 3px);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Image Zoom Effect */
+        .img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .zoom-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            background-color: #334155; /* Placeholder color */
+        }
+
+        .card-content:hover .zoom-img {
+            transform: scale(1.1);
+        }
+
+        /* =========================================
+           4. CSS-Only Accordion (Checkbox Hack)
+           ========================================= */
+        .faq-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        /* Hide the actual checkbox input */
+        .accordion-item input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .accordion-label {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--card-bg);
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .accordion-label:hover {
+            background: #283648;
+        }
+
+        /* The Chevron/Icon rotation */
+        .accordion-label::after {
+            content: "\276F"; /* Chevron symbol */
+            transition: transform 0.3s;
+            transform: rotate(90deg);
+        }
+
+        /* Checkbox Logic: When checked, rotate icon and expand content */
+        .accordion-item input:checked + .accordion-label::after {
+            transform: rotate(270deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s;
+            background: #16202e;
+            color: var(--text-secondary);
+        }
+
+        .accordion-item input:checked ~ .accordion-content {
+            max-height: 200px; /* Arbitrary large height */
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="dashboard-grid">
+
+            <article class="card-base flip-card-container">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Analytics</h2>
+                        <p>Hover to view details</p>
+                        <div style="font-size: 3rem; margin-top:1rem;">📊</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Q3 Report</h2>
+                        <p>Revenue: +24%</p>
+                        <p>Users: 1.2M</p>
+                        <button style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:4px; cursor:pointer;">Download CSV</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card-base glass-card">
+                <div>
+                    <h2>System Status</h2>
+                    <p>Server load is currently stable via the Glassmorphism layer.</p>
+                </div>
+                <div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem;">
+                        <span>CPU Usage</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card-base neon-border-card">
+                <div class="card-content">
+                    <div class="img-wrapper">
+                        <img src="https://picsum.photos/400/300?grayscale" alt="Project Preview" class="zoom-img">
+                    </div>
+                    <h2>Project Alpha</h2>
+                    <p>Features an animated gradient border and image zoom on hover.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <section class="faq-section">
+            <h2 style="margin-bottom: 1rem; text-align: center;">Frequently Asked Questions</h2>
+            
+            <div class="accordion-item">
+                <input type="checkbox" id="faq1">
+                <label class="accordion-label" for="faq1">How does the 3D flip work?</label>
+                <div class="accordion-content">
+                    <p>It uses `transform-style: preserve-3d` on the parent and `rotateY` on hover. The backface is hidden using `backface-visibility: hidden`.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq2">
+                <label class="accordion-label" for="faq2">Is the Accordion JavaScript free?</label>
+                <div class="accordion-content">
+                    <p>Yes. We use the "Checkbox Hack". The `:checked` pseudo-class allows us to style sibling elements (the content div) without JS.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <input type="checkbox" id="faq3">
+                <label class="accordion-label" for="faq3">What is Glassmorphism?</label>
+                <div class="accordion-content">
+                    <p>It mimics frosted glass using `backdrop-filter: blur()`. It requires a semi-transparent background color to allow the blur to be visible.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
