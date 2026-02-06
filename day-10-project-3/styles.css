@@ -1,0 +1,403 @@
+:root {
+    --text-main: #262626;
+    --text-secondary: #8E8E8E;
+    --bg-main: #FAFAFA;
+    --bg-white: #FFFFFF;
+    --border-color: #DBDBDB;
+    --brand-blue: #0095F6;
+    --brand-blue-hover: #1877F2;
+    --button-text: #FFFFFF;
+    --link-blue: #00376B;
+    --error-red: #ED4956;
+    
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: var(--font-stack);
+    color: var(--text-main);
+    line-height: 1.4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.hidden { display: none; }
+
+a {
+    text-decoration: none;
+    color: var(--link-blue);
+    font-weight: 600;
+    font-size: 14px;
+}
+a:hover {
+    text-decoration: none;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 32px;
+    margin-top: 32px;
+}
+
+.phone-mockup {
+    display: none;
+    width: 380px;
+    height: 580px;
+    background-image: url('https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones-2x.png?__makehaste_cache_breaker=73SVAexZgBW');
+    background-size: 468.32px 634.15px;
+    background-position: -46px 0;
+    margin-right: 32px;
+}
+
+.login-section {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-box {
+    padding-bottom: 20px;
+}
+
+.logo {
+    margin: 36px 0 12px 0;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 3rem;
+    background-image: url('https://static.cdninstagram.com/rsrc.php/v3/yM/r/8n91YnfPq0s.png');
+    background-repeat: no-repeat;
+    background-position: 0 -52px;
+    height: 51px;
+    width: 175px;
+    text-indent: -9999px;
+}
+
+.login-form {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 6px;
+    height: 38px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background-color: var(--bg-main);
+}
+
+.input-group:focus-within {
+    border-color: var(--text-secondary);
+}
+
+.input-group input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 9px 8px 0 8px;
+    font-size: 12px;
+    outline: none;
+    line-height: 18px;
+    z-index: 1;
+}
+
+.input-group label {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    transform-origin: left center;
+    transition: transform 0.1s ease-out, font-size 0.1s ease-out;
+    pointer-events: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    right: 8px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    transform: translateY(-10px) scale(0.83333);
+}
+
+.btn-primary {
+    background-color: var(--brand-blue);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin: 16px 0;
+    height: 32px;
+    line-height: 18px;
+}
+.btn-primary:hover {
+    background-color: var(--brand-blue-hover);
+}
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.divider {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 10px 0 18px 0;
+    align-items: center;
+}
+
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.or {
+    margin: 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.fb-login {
+    color: #385185;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.fb-icon {
+    font-weight: bold;
+    font-size: 16px; 
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.forgot-password {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--link-blue);
+    font-weight: 400;
+}
+
+.signup-box p {
+    font-size: 14px;
+    margin: 15px 0;
+}
+.signup-box a {
+    color: var(--brand-blue);
+    font-weight: 600;
+}
+
+.app-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.app-download p {
+    margin: 10px 0 20px 0;
+    font-size: 14px;
+}
+.store-buttons {
+    display: flex;
+    gap: 8px;
+}
+.store-btn {
+    width: 134px;
+    height: 40px;
+    background-size: cover;
+    cursor: pointer;
+}
+.google-play {
+    background-image: url('https://static.cdninstagram.com/rsrc.php/v3/y2/r/yKDBMHYWDYR.png');
+}
+.microsoft {
+    background-image: url('https://static.cdninstagram.com/rsrc.php/v3/yE/r/sYVbdqX1d7l.png');
+}
+
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 52px;
+    padding: 0 16px;
+    gap: 16px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 16px;
+}
+
+.links a {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.team-header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.team-header h1 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.team-header p {
+    color: var(--text-secondary);
+}
+
+.team-container {
+    max-width: 935px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+    justify-content: center;
+}
+
+.team-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; 
+}
+
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.social-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.card-image:hover .social-overlay {
+    opacity: 1;
+}
+
+.social-link {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.social-link:hover {
+    background-color: white;
+    color: black;
+}
+
+.card-info {
+    padding: 16px;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.role {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 800px) {
+    .phone-mockup {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .login-section {
+        width: 100%;
+    }
+    .box {
+        background-color: transparent;
+        border: none;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
