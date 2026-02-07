@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Creative UI Showcase</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-container"></div>
+    
+    <main class="hero">
+        <h1 class="neon-text">COMING SOON</h1>
+        <h2 class="typewriter">Something amazing is in the works...</h2>
+        <button id="notify-btn" class="cta-btn">Notify Me</button>
+    </main>
+
+    <section class="gallery">
+        <!-- Gallery items will be added here -->
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x400/333/fff?text=Project+1" alt="Project 1"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x200/444/fff?text=Project+2" alt="Project 2"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x500/555/fff?text=Project+3" alt="Project 3"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x300/666/fff?text=Project+4" alt="Project 4"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x450/777/fff?text=Project+5" alt="Project 5"></div>
+        <div class="gallery-item"><img src="https://via.placeholder.com/300x250/888/fff?text=Project+6" alt="Project 6"></div>
+    </section>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2>Stay Tuned!</h2>
+            <p>Enter your email to get notified when we launch.</p>
+            <input type="email" placeholder="Enter your email" class="email-input">
+            <button class="submit-btn">Subscribe</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
