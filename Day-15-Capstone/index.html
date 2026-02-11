@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15: Virtual Core</title>
+    <style>
+        body {
+            background-color: #0f0f0f; /* Dark background */
+            color: #00ff00; /* Hacker green text */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+        }
+        button {
+            background-color: #000;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>> VIRTUAL CORE v1.0 <</h1>
+    <p>Status: OFFLINE</p>
+    <button onclick="bootSystem()">[ INITIALIZE SYSTEM ]</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
