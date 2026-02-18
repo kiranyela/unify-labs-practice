@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROJECT NEXUS: Real-time Data & Analytics Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PROJECT NEXUS</h1>
+      <button id="theme-toggle">Toggle Theme</button>
+    </header>
+    <div class="controls">
+      <input id="search" type="text" placeholder="Search coins..." />
+      <select id="sort">
+        <option value="name">Sort by Name</option>
+        <option value="price">Sort by Price</option>
+        <option value="market_cap">Sort by Market Cap</option>
+      </select>
+    </div>
+    <div id="notification" style="display: none"></div>
+    <div id="data-list"></div>
+    <script type="module" src="App.js"></script>
+  </body>
+</html>

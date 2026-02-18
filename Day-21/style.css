@@ -11,8 +11,8 @@ body.dark {
   margin: 60px auto;
   padding: 2rem;
   border-radius: 8px;
-  background: rgba(0,0,0,0.03);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 .setting-row {
   margin-bottom: 1.5rem;

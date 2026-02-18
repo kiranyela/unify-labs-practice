@@ -1,0 +1,120 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark {
+  background: #181818;
+  color: #f4f4f4;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem 2rem;
+  background: #0078d4;
+  color: #fff;
+}
+#theme-toggle {
+  background: #fff;
+  color: #0078d4;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+#theme-toggle:hover {
+  background: #e0e0e0;
+}
+.controls {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+#search {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+#sort {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+#notification {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background: #ffdddd;
+  color: #a00;
+  border-radius: 4px;
+  font-weight: bold;
+}
+#data-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+body.dark .card {
+  background: #232323;
+  color: #f4f4f4;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.coin-img {
+  width: 40px;
+  height: 40px;
+}
+.card-body {
+  margin-top: 1rem;
+  text-align: center;
+}
+.fav-btn {
+  margin-top: 1rem;
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.fav-btn:hover {
+  background: #005fa3;
+}
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 6px solid #eee;
+  border-top: 6px solid #0078d4;
+  border-radius: 50%;
+  margin: 3rem auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
