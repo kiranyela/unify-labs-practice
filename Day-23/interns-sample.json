@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Alice Johnson",
+    "role": "Frontend Intern",
+    "joinedDate": "2024-06-15"
+  },
+  {
+    "name": "Brian Lee",
+    "role": "Backend Intern",
+    "joinedDate": "2024-07-01"
+  },
+  {
+    "name": "Carla Mendes",
+    "role": "Data Intern",
+    "joinedDate": "2024-08-10"
+  }
+]
