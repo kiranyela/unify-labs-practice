@@ -91,14 +91,5 @@ A script is included (`insert_interns.js`). Run it from PowerShell to insert the
 mongosh insert_interns.js
 ```
 
-Troubleshooting
 
-- If Compass can't connect, verify MongoDB is running and listening on port 27017. Use `netstat -an | findstr 27017` to confirm.
-- If `mongosh` is not found, confirm the installation and PATH, or open the MongoDB Shell from the Start Menu (installed with the server or Compass).
 
-Files included
-
-- `insert_interns.js` — script you can run with `mongosh`
-- `interns-sample.json` — three sample documents you can load or inspect
-
-Done-for-you sample data and script are in this folder. Follow the steps above to finish Day 23 in your local environment.
