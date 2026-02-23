@@ -1,0 +1,13 @@
+{
+  "name": "day-27-shop-api",
+  "version": "1.0.0",
+  "description": "Shop API with Express and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.0.0"
+  }
+}
