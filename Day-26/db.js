@@ -1,14 +1,12 @@
 const { MongoClient } = require("mongodb");
 
-// Connection URI and client
-const uri = "mongodb://localhost:27017";
+const DEFAULT_URI = "mongodb://localhost:27017";
+const uri = process.env.MONGODB_URI || DEFAULT_URI;
 const client = new MongoClient(uri, { serverSelectionTimeoutMS: 5000 });
 
-// Connect and verify handshake
 async function connect() {
   try {
     await client.connect();
-    // Perform a ping to ensure handshake/communication with server
     await client.db("admin").command({ ping: 1 });
     console.log("Database connected successfully");
     const db = client.db("unify_labs");

@@ -4,14 +4,20 @@ const { MongoClient, ObjectId } = require("mongodb");
 const app = express();
 app.use(express.json());
 
-const uri = "mongodb://localhost:27017";
-const client = new MongoClient(uri);
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const client = new MongoClient(uri, { serverSelectionTimeoutMS: 5000 });
 let db;
 
 async function start() {
-  await client.connect();
-  db = client.db("unify_labs");
-  app.listen(3000);
+  try {
+    await client.connect();
+    db = client.db("unify_labs");
+    const port = process.env.PORT || 3000;
+    app.listen(port);
+  } catch (err) {
+    console.error("Failed to start server:", err.message);
+    process.exit(1);
+  }
 }
 
 app.post("/products", async (req, res) => {
