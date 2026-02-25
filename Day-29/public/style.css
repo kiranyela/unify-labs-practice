@@ -1,8 +1,4 @@
-/* ==========================================================================
-   CSS Variables & Theming
-   ========================================================================== */
 :root {
-  /* Light Theme Colors */
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --text-primary: #0f172a;
@@ -11,12 +7,8 @@
   --accent-hover: #1d4ed8;
   --danger-color: #ef4444;
   --border-color: #e2e8f0;
-  
-  /* Typography */
-  --font-ui: 'Inter', system-ui, sans-serif;
-  --font-reading: 'Merriweather', Georgia, serif;
-  
-  /* Spacing & Layout */
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-reading: "Merriweather", Georgia, serif;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
@@ -27,7 +19,6 @@
 }
 
 [data-theme="dark"] {
-  /* Dark Theme Overrides */
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --text-primary: #f8fafc;
@@ -37,10 +28,9 @@
   --accent-hover: #60a5fa;
 }
 
-/* ==========================================================================
-   Reset & Base Styles
-   ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -57,9 +47,6 @@ body {
   flex-direction: column;
 }
 
-/* ==========================================================================
-   Layout & Navigation
-   ========================================================================== */
 .top-nav {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
@@ -92,7 +79,6 @@ main {
   width: 100%;
 }
 
-/* View Toggling Classes */
 .view-hidden {
   display: none !important;
 }
@@ -100,12 +86,8 @@ main {
   display: block;
 }
 
-/* ==========================================================================
-   Components: Grid & Cards
-   ========================================================================== */
 .posts-grid {
   display: grid;
-  /* Auto-fill ensures cards wrap cleanly without media queries */
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--spacing-xl);
 }
@@ -138,7 +120,7 @@ main {
 }
 
 .post-excerpt {
-  flex-grow: 1; /* Pushes actions to the bottom */
+  flex-grow: 1;
   margin-bottom: var(--spacing-lg);
   color: var(--text-secondary);
 }
@@ -150,9 +132,6 @@ main {
   padding-top: var(--spacing-md);
 }
 
-/* ==========================================================================
-   Components: Single Post View
-   ========================================================================== */
 #singleView {
   max-width: 800px;
   margin: 0 auto;
@@ -179,9 +158,6 @@ main {
   margin-bottom: var(--spacing-lg);
 }
 
-/* ==========================================================================
-   Forms & Modals
-   ========================================================================== */
 .modal {
   margin: auto;
   padding: var(--spacing-xl);
@@ -233,9 +209,6 @@ main {
   margin-top: var(--spacing-xl);
 }
 
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
 button {
   cursor: pointer;
   font-family: var(--font-ui);
