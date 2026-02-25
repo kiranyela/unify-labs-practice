@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZENITH | The Blogger Core</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+  <header class="top-nav">
+    <div class="nav-content">
+      <h1>ZENITH.</h1>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle Dark Mode">🌙</button>
+        <button id="newPostBtn" class="btn-primary">Write a Post</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="appContainer">
+    <section id="gridView" class="view-active">
+      <div id="loadingIndicator" class="hidden">Loading posts...</div>
+      <div id="postsGrid" class="posts-grid"></div>
+    </section>
+
+    <section id="singleView" class="view-hidden">
+      <button id="backToGridBtn" class="btn-secondary">&larr; Back</button>
+      <article id="singlePostContent" class="post-article"></article>
+    </section>
+  </main>
+
+  <dialog id="editorModal" class="modal">
+    <form id="editorForm" method="dialog">
+      <h2>Create New Post</h2>
+      
+      <div class="form-group">
+        <label for="postTitle">Title</label>
+        <input type="text" id="postTitle" name="title" required placeholder="Enter an engaging title">
+      </div>
+      
+      <div class="form-group">
+        <label for="postCategory">Category</label>
+        <input type="text" id="postCategory" name="category" required placeholder="e.g., Technology, Lifestyle">
+      </div>
+      
+      <div class="form-group">
+        <label for="postContent">Content</label>
+        <textarea id="postContent" name="content" rows="10" required placeholder="Write your thoughts here..."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+        <button type="submit" id="savePostBtn" class="btn-primary">Publish</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
