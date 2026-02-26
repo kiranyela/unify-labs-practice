@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Titan X Pro Laptop",
+    "description": "High-performance laptop for developers and creators.",
+    "price": 1299.99,
+    "category": "electronics",
+    "image": "https://placehold.co/300x200/2563eb/ffffff?text=Titan+X+Pro",
+    "stock": 45
+  },
+  {
+    "name": "Mechanical Keyboard K2",
+    "description": "Tactile mechanical keyboard with RGB backlighting.",
+    "price": 89.50,
+    "category": "electronics",
+    "image": "https://placehold.co/300x200/1e293b/ffffff?text=Mech+Keyboard",
+    "stock": 120
+  },
+  {
+    "name": "Ergonomic Mesh Chair",
+    "description": "Breathable mesh office chair with lumbar support.",
+    "price": 249.99,
+    "category": "furniture",
+    "image": "https://placehold.co/300x200/0f172a/ffffff?text=Ergo+Chair",
+    "stock": 15
+  },
+  {
+    "name": "Ceramic Coffee Mug",
+    "description": "Minimalist matte black ceramic mug (12oz).",
+    "price": 14.00,
+    "category": "accessories",
+    "image": "https://placehold.co/300x200/64748b/ffffff?text=Coffee+Mug",
+    "stock": 300
+  }
+]
