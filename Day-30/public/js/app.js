@@ -1,6 +1,6 @@
 
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = '/api';
 
 const productGrid = document.getElementById('product-grid');
 const searchInput = document.getElementById('search-input');
